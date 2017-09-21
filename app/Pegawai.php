@@ -9,7 +9,18 @@ class Pegawai extends Model
     const JABATAN = [
         'Ketua Jurusan',
         'Sekretaris Jurusan',
-        'Pembina Kemahasiswaan'
+        'Pembina Kemahasiswaan',
+        'Kaprodi D3 Manajemen Informatika',
+        'Kaprodi S1 Pendidikan Teknologi Informasi',
+        'Kaprodi S1 Sistem Informasi',
+        'Kaprodi S1 Teknik Informatika',
+        'Unit Penunjang',
+        'Ketua Lab',
+        'Ketua Lab Rekayasa Perangkat Lunak',
+        'Ketua Lab Multimedia Kreatif',
+        'Ketua Lab Sistem Informasi',
+        'Ketua Lab Jaringan',
+        'Staf Pelaksana'
     ];
 
     protected $table = 'pegawai';
