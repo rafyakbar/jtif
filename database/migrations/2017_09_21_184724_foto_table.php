@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProdiTable extends Migration
+class FotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class ProdiTable extends Migration
      */
     public function up()
     {
-        Schema::create('prodi', function (Blueprint $table){
+        Schema::create('foto', function (Blueprint $table){
             $table->increments('id');
-            $table->string('nama');
-            $table->text('keterangan');
+            $table->text('dir');
         });
     }
 
