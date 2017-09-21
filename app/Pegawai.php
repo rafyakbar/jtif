@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pegawai extends Model
 {
+    const JABATAN = [
+        'Ketua Jurusan',
+        'Sekretaris Jurusan',
+        'Pembina Kemahasiswaan'
+    ];
+
     protected $table = 'pegawai';
 
     protected $timestamps = false;
