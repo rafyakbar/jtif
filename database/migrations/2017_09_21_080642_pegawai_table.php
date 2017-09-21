@@ -15,9 +15,12 @@ class PegawaiTable extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table){
             $table->string('id')->primary()->unique();
+            $table->integer('prodi_id')->unsigned()->nullable();
+            $table->foreign('prodi_id')->references('id')->on('prodi')->onUpdate('CASCADE')->onDelete('SET NULL');
             $table->string('nama');
             $table->string('jabatan');
             $table->string('jenis_kelamin');
+            $table->text('dir')->nullable();
         });
     }
 
