@@ -15,7 +15,7 @@ class MenuTable extends Migration
     {
         Schema::create('menu', function (Blueprint $table){
             $table->increments('id');
-            $table->text('keterangan');
+            $table->string('nama');
             $table->boolean('banyak_konten');
             $table->timestamps();
         });

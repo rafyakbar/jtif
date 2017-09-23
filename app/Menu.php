@@ -9,7 +9,7 @@ class Menu extends Model
     protected $table = 'menu';
 
     protected $fillable = [
-        'keterangan', 'banyak_konten', 'created_at', 'updated_at'
+        'nama', 'banyak_konten', 'created_at', 'updated_at'
     ];
 
     public $timestamps = false;
