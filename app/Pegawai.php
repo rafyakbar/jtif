@@ -35,6 +35,6 @@ class Pegawai extends Model
 
     public function prodi()
     {
-        $this->belongsTo('App\Prodi', 'prodi_id');
+        $this->belongsTo('App\Prodi', 'prodi_id')->first();
     }
 }

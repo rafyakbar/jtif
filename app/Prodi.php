@@ -14,6 +14,6 @@ class Prodi extends Model
 
     public function pegawai()
     {
-        $this->hasMany('App\Pegawai', 'prodi_id');
+        $this->hasMany('App\Pegawai', 'prodi_id')->get();
     }
 }
