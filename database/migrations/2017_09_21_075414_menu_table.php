@@ -17,7 +17,6 @@ class MenuTable extends Migration
             $table->increments('id');
             $table->text('keterangan');
             $table->boolean('banyak_konten');
-            $table->string('letak');
             $table->timestamps();
         });
     }

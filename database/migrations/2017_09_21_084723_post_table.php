@@ -15,6 +15,8 @@ class PostTable extends Migration
     {
         Schema::create('post',function (Blueprint $table){
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->integer('menu_id')->unsigned()->nullable();
             $table->foreign('menu_id')->references('id')->on('menu')->onUpdate('CASCADE')->onDelete('SET NULL');
             $table->text('isi');
