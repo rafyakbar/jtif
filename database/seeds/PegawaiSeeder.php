@@ -11,6 +11,6 @@ class PegawaiSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }
