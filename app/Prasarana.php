@@ -8,7 +8,7 @@ class Prasarana extends Model
 {
     protected $table = 'prasarana';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'nama', 'keterangan'

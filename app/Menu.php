@@ -12,6 +12,8 @@ class Menu extends Model
         'keterangan', 'banyak_konten', 'created_at', 'updated_at'
     ];
 
+    public $timestamps = false;
+
     public function post()
     {
         $this->hasMany('App\Post', 'menu_id')->get();

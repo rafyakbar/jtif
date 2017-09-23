@@ -12,6 +12,8 @@ class Prodi extends Model
         'nama', 'keterangan'
     ];
 
+    public $timestamps = false;
+
     public function pegawai()
     {
         $this->hasMany('App\Pegawai', 'prodi_id')->get();

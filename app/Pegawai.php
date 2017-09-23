@@ -25,7 +25,7 @@ class Pegawai extends Model
 
     protected $table = 'pegawai';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $keyType = 'string';
 
