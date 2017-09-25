@@ -17,19 +17,19 @@
     <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
     <!-- Theme initialization -->
     <link rel="stylesheet" href="{{asset('css/appadm.css')}}">
-    {{--<script>--}}
-        {{--var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :--}}
-            {{--{};--}}
-        {{--var themeName = themeSettings.themeName || '';--}}
-        {{--if (themeName)--}}
-        {{--{--}}
-            {{--document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');--}}
-        {{--}--}}
-        {{--else--}}
-        {{--{--}}
-            {{--document.write('<link rel="stylesheet" id="theme-style" href="{{asset('css/appadm.css')}}css/app.css">');--}}
-        {{--}--}}
-    {{--</script>--}}
+    <script>
+        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+            {};
+        var themeName = themeSettings.themeName || '';
+        if (themeName)
+        {
+            document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
+        }
+        else
+        {
+            document.write('<link rel="stylesheet" id="theme-style" href="{{asset('css/appadm.css')}}css/app.css">');
+        }
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -51,92 +51,29 @@
                 </form>
             </div>
             <div class="header-block header-block-buttons">
-                <a href="https://github.com/modularcode/modular-admin-html" class="btn btn-sm header-btn">
-                    <i class="fa fa-github-alt"></i>
-                    <span>View on GitHub</span>
-                </a>
-                <a href="https://github.com/modularcode/modular-admin-html/stargazers" class="btn btn-sm header-btn">
-                    <i class="fa fa-star"></i>
-                    <span>Star Us</span>
-                </a>
-                <a href="https://github.com/modularcode/modular-admin-html/releases" class="btn btn-sm header-btn">
-                    <i class="fa fa-cloud-download"></i>
-                    <span>Download .zip</span>
+                <a href="" class="btn btn-sm header-btn">
+                    <i class="fa fa-home"></i>
+                    <span>Lihat web jurusan</span>
                 </a>
             </div>
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
-                    <li class="notifications new">
-                        <a href="" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <sup>
-                                <span class="counter">8</span>
-                            </sup>
-                        </a>
-                        <div class="dropdown-menu notifications-dropdown-menu">
-                            <ul class="notifications-container">
-                                <li>
-                                    <a href="" class="notification-item">
-                                        <div class="img-col">
-                                            <div class="img" style="background-image: url('assets/faces/3.jpg')"></div>
-                                        </div>
-                                        <div class="body-col">
-                                            <p>
-                                                <span class="accent">Zack Alien</span> pushed new commit:
-                                                <span class="accent">Fix page load performance issue</span>. </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="notification-item">
-                                        <div class="img-col">
-                                            <div class="img" style="background-image: url('assets/faces/5.jpg')"></div>
-                                        </div>
-                                        <div class="body-col">
-                                            <p>
-                                                <span class="accent">Amaya Hatsumi</span> started new task:
-                                                <span class="accent">Dashboard UI design.</span>. </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="notification-item">
-                                        <div class="img-col">
-                                            <div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
-                                        </div>
-                                        <div class="body-col">
-                                            <p>
-                                                <span class="accent">Andy Nouman</span> deployed new version of
-                                                <span class="accent">NodeJS REST Api V3</span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <footer>
-                                <ul>
-                                    <li>
-                                        <a href=""> View All </a>
-                                    </li>
-                                </ul>
-                            </footer>
-                        </div>
-                    </li>
                     <li class="profile dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
-                            <span class="name"> John Doe </span>
+                            <span class="name"> {{ Auth::user()->name }} </span>
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#">
-                                <i class="fa fa-user icon"></i> Profile </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-bell icon"></i> Notifications </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-gear icon"></i> Settings </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login.html">
-                                <i class="fa fa-power-off icon"></i> Logout </a>
+                                <i class="fa fa-gear icon"></i>
+                                Pengaturan
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off icon"></i>
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -159,160 +96,32 @@
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
                         <li class="active">
-                            <a href="index.html">
-                                <i class="fa fa-home"></i> Dashboard </a>
+                            <a href="index.html"><i class="fa fa-home"></i> Dashboard </a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-list"></i> Menu</a>
                         </li>
                         <li>
                             <a href="">
-                                <i class="fa fa-th-large"></i> Items Manager
+                                <i class="fa fa-files-o"></i> Post
                                 <i class="fa arrow"></i>
                             </a>
                             <ul class="sidebar-nav">
-                                <li>
-                                    <a href="items-list.html"> Items List </a>
-                                </li>
-                                <li>
-                                    <a href="item-editor.html"> Item Editor </a>
-                                </li>
+                                @foreach(\App\Menu::all() as $item)
+                                    <li>
+                                        <a href="">{{ $item->nama }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li>
-                            <a href="">
-                                <i class="fa fa-bar-chart"></i> Charts
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="charts-flot.html"> Flot Charts </a>
-                                </li>
-                                <li>
-                                    <a href="charts-morris.html"> Morris Charts </a>
-                                </li>
-                            </ul>
+                            <a href=""><i class="fa fa-users"></i> Pegawai</a>
                         </li>
                         <li>
-                            <a href="">
-                                <i class="fa fa-table"></i> Tables
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="static-tables.html"> Static Tables </a>
-                                </li>
-                                <li>
-                                    <a href="responsive-tables.html"> Responsive Tables </a>
-                                </li>
-                            </ul>
+                            <a href=""><i class="fa fa-laptop"></i> Prasarana</a>
                         </li>
                         <li>
-                            <a href="forms.html">
-                                <i class="fa fa-pencil-square-o"></i> Forms </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-desktop"></i> UI Elements
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="buttons.html"> Buttons </a>
-                                </li>
-                                <li>
-                                    <a href="cards.html"> Cards </a>
-                                </li>
-                                <li>
-                                    <a href="typography.html"> Typography </a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons </a>
-                                </li>
-                                <li>
-                                    <a href="grid.html"> Grid </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-file-text-o"></i> Pages
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="login.html"> Login </a>
-                                </li>
-                                <li>
-                                    <a href="signup.html"> Sign Up </a>
-                                </li>
-                                <li>
-                                    <a href="reset.html"> Reset </a>
-                                </li>
-                                <li>
-                                    <a href="error-404.html"> Error 404 App </a>
-                                </li>
-                                <li>
-                                    <a href="error-404-alt.html"> Error 404 Global </a>
-                                </li>
-                                <li>
-                                    <a href="error-500.html"> Error 500 App </a>
-                                </li>
-                                <li>
-                                    <a href="error-500-alt.html"> Error 500 Global </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-sitemap"></i> Menu Levels
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="#"> Second Level Item
-                                        <i class="fa arrow"></i>
-                                    </a>
-                                    <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"> Second Level Item </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Second Level Item
-                                        <i class="fa arrow"></i>
-                                    </a>
-                                    <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item
-                                                <i class="fa arrow"></i>
-                                            </a>
-                                            <ul class="sidebar-nav">
-                                                <li>
-                                                    <a href="#"> Fourth Level Item </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"> Fourth Level Item </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="https://github.com/modularcode/modular-admin-html">
-                                <i class="fa fa-github-alt"></i> Theme Docs </a>
+                            <a href=""><i class="fa fa-laptop"></i> Lain-lain</a>
                         </li>
                     </ul>
                 </nav>
@@ -409,8 +218,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <a href="">
-                            <i class="fa fa-cog"></i> Customize </a>
+                        <a href=""><i class="fa fa-cog"></i> Kustomisasi</a>
                     </li>
                 </ul>
             </footer>
