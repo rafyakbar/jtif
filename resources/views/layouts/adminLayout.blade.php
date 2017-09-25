@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
     <!-- Theme initialization -->
     <link rel="stylesheet" href="{{asset('css/appadm.css')}}">
+    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="{{ asset('js/appadm.js') }}"></script>
     <script>
         var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
             {};
@@ -45,13 +47,13 @@
                 <form role="search">
                     <div class="input-container">
                         <i class="fa fa-search"></i>
-                        <input type="search" placeholder="Search">
+                        <input type="search" placeholder="Cari post...">
                         <div class="underline"></div>
                     </div>
                 </form>
             </div>
             <div class="header-block header-block-buttons">
-                <a href="" class="btn btn-sm header-btn">
+                <a href="{{ url('/') }}" class="btn btn-sm header-btn" target="_blank">
                     <i class="fa fa-home"></i>
                     <span>Lihat web jurusan</span>
                 </a>
@@ -59,7 +61,7 @@
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
                     <li class="profile dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" target="_blank">
                             <span class="name"> {{ Auth::user()->name }} </span>
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -91,15 +93,15 @@
                             <span class="l l3"></span>
                             <span class="l l4"></span>
                             <span class="l l5"></span>
-                        </div> Modular Admin </div>
+                        </div> Admin JTIf </div>
                 </div>
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                        <li class="active">
-                            <a href="index.html"><i class="fa fa-home"></i> Dashboard </a>
+                        <li @if(Route::currentRouteName() === 'home') class="active" @endif>
+                            <a href="{{ route('home') }}"><i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li>
-                            <a href=""><i class="fa fa-list"></i> Menu</a>
+                        <li @if(Route::currentRouteName() === 'daftar.menu') class="active" @endif>
+                            <a href="{{ route('daftar.menu') }}"><i class="fa fa-list"></i> Menu</a>
                         </li>
                         <li>
                             <a href="">
@@ -114,14 +116,14 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li>
+                        <li @if(Route::currentRouteName() === 'daftar.pegawai') class="active" @endif>
                             <a href=""><i class="fa fa-users"></i> Pegawai</a>
                         </li>
-                        <li>
+                        <li @if(Route::currentRouteName() === 'daftar.prasarana') class="active" @endif>
                             <a href=""><i class="fa fa-laptop"></i> Prasarana</a>
                         </li>
-                        <li>
-                            <a href=""><i class="fa fa-laptop"></i> Lain-lain</a>
+                        <li @if(Route::currentRouteName() === 'daftar.lain-lain') class="active" @endif>
+                            <a href=""><i class="fa fa-gears"></i> Lain-lain</a>
                         </li>
                     </ul>
                 </nav>
@@ -228,9 +230,7 @@
         <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
         <div class="mobile-menu-handle"></div>
         <article class="content dashboard-page">
-
             @yield('content')
-
         </article>
         <footer class="footer">
             <div class="footer-block buttons">
@@ -328,7 +328,5 @@
         <div class="color-secondary"></div>
     </div>
 </div>
-<script src="{{ asset('js/vendor.js') }}"></script>
-<script src="{{ asset('js/appadm.js') }}"></script>
 </body>
 </html>
