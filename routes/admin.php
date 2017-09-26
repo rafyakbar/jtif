@@ -15,6 +15,11 @@ Route::group(['prefix' => 'daftar'], function (){
         'as' => 'daftar.pegawai'
     ]);
 
+    Route::get('prodi', [
+        'uses' => 'ProdiController@daftar',
+        'as' => 'daftar.prodi'
+    ]);
+
 });
 
 Route::group(['prefix' => 'tambah'], function (){
@@ -27,6 +32,11 @@ Route::group(['prefix' => 'tambah'], function (){
     Route::post('pegawai', [
         'uses' => 'PegawaiController@tambah',
         'as' => 'tambah.pegawai'
+    ]);
+
+    Route::post('prodi', [
+        'uses' => 'ProdiController@tambah',
+        'as' => 'tambah.prodi'
     ]);
 
 });
@@ -55,6 +65,11 @@ Route::group(['prefix' => 'update'], function (){
     Route::post('pegawai', [
         'uses' => 'PegawaiController@update',
         'as' => 'update.pegawai'
+    ]);
+
+    Route::post('prodi', [
+        'uses' => 'ProdiController@update',
+        'as' => 'update.prodi'
     ]);
 
 });

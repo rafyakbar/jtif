@@ -116,6 +116,9 @@
                                 @endforeach
                             </ul>
                         </li>
+                        <li @if(Route::currentRouteName() === 'daftar.prodi') class="active" @endif>
+                            <a href="{{ route('daftar.prodi') }}"><i class="fa fa-graduation-cap"></i> Prodi</a>
+                        </li>
                         <li @if(Route::currentRouteName() === 'daftar.pegawai') class="active" @endif>
                             <a href="{{ route('daftar.pegawai') }}"><i class="fa fa-users"></i> Pegawai</a>
                         </li>
@@ -243,6 +246,12 @@
                     </li>
                     <li>
                         <a href="https://github.com/Yuschri" target="_blank">Yusuf</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Fachrizal</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Natalia</a>
                     </li>
                 </ul>
             </div>

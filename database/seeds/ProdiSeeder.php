@@ -22,7 +22,7 @@ class ProdiSeeder extends Seeder
         foreach (static::JURUSAN as $value){
             Prodi::create([
                 'nama' => $value,
-                'keterangan' => 'Berisi Visi & Misi'
+                'keterangan' => 'Berisi visi, misi dan lain-lain'
             ]);
         }
     }

@@ -25,7 +25,6 @@
                 </thead>
                 <tbody>
                 @foreach(\App\Pegawai::orderBy('nama')->get() as $item)
-                    <input type="hidden" name="id" value="{{ $item->id }}">
                     <tr>
                         <td>
                             <p>{{ $item->id }}</p>
