@@ -33,6 +33,10 @@ class PegawaiController extends Controller
             $nama_file = str_replace(':', '-', $nama_file);
             Input::file('dir')->move('img/pegawai', $nama_file);
 
+            if (!is_null(Pegawai::find($request->id)->dir))
+                if (file_exists(Pegawai::find($request->id)->dir))
+                    unlink(Pegawai::find($request->id)->dir);
+
             Pegawai::find($request->id)->update([
                 'dir' => 'img/pegawai/'.$nama_file
             ]);
