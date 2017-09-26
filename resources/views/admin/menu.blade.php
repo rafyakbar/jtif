@@ -3,7 +3,7 @@
 @section('content')
     <div class="card card-block">
         <div class="title-block">
-            <h3 class="title"> List menu </h3>
+            <h3 class="title"> Daftar menu </h3>
         </div>
         <section class="example">
             <table class="table">
@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                 @foreach(\App\Menu::orderBy('nama')->get() as $item)
-                    <form action="{{ route('edit.menu') }}" method="post">
+                    <form action="{{ route('update.menu') }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <tr>

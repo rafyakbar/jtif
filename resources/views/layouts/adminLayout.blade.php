@@ -117,7 +117,7 @@
                             </ul>
                         </li>
                         <li @if(Route::currentRouteName() === 'daftar.pegawai') class="active" @endif>
-                            <a href=""><i class="fa fa-users"></i> Pegawai</a>
+                            <a href="{{ route('daftar.pegawai') }}"><i class="fa fa-users"></i> Pegawai</a>
                         </li>
                         <li @if(Route::currentRouteName() === 'daftar.prasarana') class="active" @endif>
                             <a href=""><i class="fa fa-laptop"></i> Prasarana</a>
@@ -239,10 +239,10 @@
             <div class="footer-block author">
                 <ul>
                     <li> created by
-                        <a href="https://github.com/modularcode">ModularCode</a>
+                        <a href="https://github.com/rafyakbar" target="_blank">Rafy</a>
                     </li>
                     <li>
-                        <a href="https://github.com/modularcode/modular-admin-html#get-in-touch">get in touch</a>
+                        <a href="https://github.com/Yuschri" target="_blank">Yusuf</a>
                     </li>
                 </ul>
             </div>

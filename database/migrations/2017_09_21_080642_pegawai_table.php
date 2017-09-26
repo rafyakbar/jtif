@@ -21,6 +21,7 @@ class PegawaiTable extends Migration
             $table->string('jabatan');
             $table->string('jenis_kelamin');
             $table->text('dir')->nullable();
+            $table->timestamps();
         });
     }
 

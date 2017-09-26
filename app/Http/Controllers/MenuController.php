@@ -22,7 +22,7 @@ class MenuController extends Controller
         return back();
     }
 
-    public function edit(Request $request)
+    public function update(Request $request)
     {
         Menu::find($request->id)->update([
             'nama' => $request->nama,

@@ -26,12 +26,10 @@ class Pegawai extends Model
 
     protected $table = 'pegawai';
 
-    public $timestamps = false;
-
     protected $keyType = 'string';
 
     protected $fillable = [
-        'nama', 'prodi_id', 'jabatan', 'jenis_kelamain', 'dir'
+        'id', 'nama', 'prodi_id', 'jabatan', 'jenis_kelamain', 'dir', 'created_at', 'updated_at'
     ];
 
     public function prodi()
