@@ -3,6 +3,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
+Route::get('/tinymce_test', function () {
+    return view('mceImageUpload::example');
+});
+
 Route::group(['prefix' => 'daftar'], function (){
 
     Route::get('menu', [

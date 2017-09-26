@@ -1,6 +1,7 @@
 @extends('layouts.adminlayout')
 
 @section('content')
+    @include('mceImageUpload::upload_form')
     <div class="card card-block">
         <div class="title-block">
             <h3 class="title">
@@ -20,6 +21,7 @@
                 <tbody>
                 @foreach(\App\Prodi::orderBy('nama')->get() as $item)
                     <tr>
+                        {{--@include('mceImageUpload::upload_form')--}}
                         <form action="{{ route('update.prodi') }}" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="{{ $item->id }}">
@@ -28,6 +30,7 @@
                                        value="{{ $item->nama }}">
                             </td>
                             <td width="65%">
+                                {{ str_replace('<img src="', '<img src="'.substr(asset(''),0,-1), $item->keterangan) }}
                                 <textarea class="form-control" rows="25" name="keterangan">{{ $item->keterangan }}</textarea>
                             </td>
                             <td width="15%">
