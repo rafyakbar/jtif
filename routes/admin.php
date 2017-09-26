@@ -24,6 +24,11 @@ Route::group(['prefix' => 'tambah'], function (){
         'as' => 'tambah.menu'
     ]);
 
+    Route::post('pegawai', [
+        'uses' => 'PegawaiController@tambah',
+        'as' => 'tambah.pegawai'
+    ]);
+
 });
 
 Route::group(['prefix' => 'hapus'], function (){

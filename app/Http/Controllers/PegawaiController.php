@@ -47,6 +47,26 @@ class PegawaiController extends Controller
         return back()->with('message', 'Berhasil memperbarui data '.$request->nama);;
     }
 
+    public function tambah(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'jenis_kelamin' => 'required'
+        ]);
+
+        Pegawai::create([
+            'id' => $request->id,
+            'prodi_id' => $request->prodi_id,
+            'nama' => $request->nama,
+            'jenis_kelamin' => 'Pria',
+            'jabatan' => $request->jabatan,
+        ]);
+
+        return back()->with('message', 'Berhasil menambahkan '.$request->nama);
+    }
+
     public function hapus(Request $request)
     {
         Pegawai::find($request->id)->delete();

@@ -29,7 +29,7 @@ class Pegawai extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'nama', 'prodi_id', 'jabatan', 'jenis_kelamain', 'dir', 'created_at', 'updated_at'
+        'id', 'nama', 'prodi_id', 'jabatan', 'jenis_kelamin', 'dir', 'created_at', 'updated_at'
     ];
 
     public function prodi()

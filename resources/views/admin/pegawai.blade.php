@@ -8,7 +8,10 @@
     @endif
     <div class="card card-block">
         <div class="title-block">
-            <h3 class="title"> Daftar pegawai </h3>
+            <h3 class="title">
+                Daftar pegawai &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-oval btn-primary" data-toggle="modal" data-target="#tambah">Tambah pegawai</button>
+            </h3>
         </div>
         <section class="example">
             <table class="table">
@@ -73,14 +76,14 @@
                                         <br>
                                         <label>ID / NIP</label>
                                         <input type="text" class="form-control underlined" name="id"
-                                               value="{{ $item->id }}">
+                                               value="{{ $item->id }}" required>
                                         <br>
                                         <label>Nama</label>
                                         <input type="text" class="form-control underlined" name="nama"
-                                               value="{{ $item->nama }}">
+                                               value="{{ $item->nama }}" required>
                                         <br>
                                         <label>Jabatan</label>
-                                        <select name="jabatan" class="form-control underlined">
+                                        <select name="jabatan" class="form-control underlined" required>
                                             <option value="{{ $item->jabatan }}">{{ $item->jabatan }}</option>
                                             @foreach(\App\Pegawai::JABATAN as $value)
                                                 <option value="{{ $value }}">{{ $value }}</option>
@@ -88,7 +91,7 @@
                                         </select>
                                         <br>
                                         <label>Prodi</label>
-                                        <select name="prodi_id" class="form-control underlined">
+                                        <select name="prodi_id" class="form-control underlined" required>
                                             @if(!is_null($item->prodi_id))
                                                 <option value="{{ $item->prodi_id }}" selected>{{ \App\Prodi::find($item->prodi_id)->nama }}</option>
                                             @endif
@@ -98,16 +101,15 @@
                                         </select>
                                         <br>
                                         <label>Jenis kelamin</label>
-                                        <select class="form-control underlined" name="jenis_kelamin">
+                                        <select class="form-control underlined" name="jenis_kelamin" required>
                                             <option value="{{ $item->jenis_kelamin }}">{{ $item->jenis_kelamin }}</option>
                                             <option value="Pria">Pria</option>
                                             <option value="Wanita">Wanita</option>
                                         </select>
-                                        <br>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('update-{{ $item->id }}').submit();">Simpan</button>
                                 </div>
                             </div>
@@ -117,5 +119,54 @@
                 </tbody>
             </table>
         </section>
+    </div>
+
+    <div class="modal fade" id="tambah" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah pegawai</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('tambah.pegawai') }}" method="post" id="tambah-form">
+                        {{ csrf_field() }}
+                        <label>Foto (kosongi jika foto tidak ada)</label>
+                        <input type="file" name="dir" accept="image/jpeg" class="form-control underlined">
+                        <br>
+                        <label>ID / NIP</label>
+                        <input type="text" class="form-control underlined" name="id" required>
+                        <br>
+                        <label>Nama</label>
+                        <input type="text" class="form-control underlined" name="nama" required>
+                        <br>
+                        <label>Jabatan</label>
+                        <select name="jabatan" class="form-control underlined" required>
+                            @foreach(\App\Pegawai::JABATAN as $value)
+                                <option value="{{ $value }}">{{ $value }}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <label>Prodi</label>
+                        <select name="prodi_id" class="form-control underlined" required>
+                            <option></option>
+                            @foreach(\App\Prodi::all() as $prodi)
+                                <option value="{{ $prodi->id }}">{{ $prodi->nama }}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <label>Jenis kelamin</label>
+                        <select class="form-control underlined" name="jenis_kelamin" required>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('tambah-form').submit();">Simpan</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
