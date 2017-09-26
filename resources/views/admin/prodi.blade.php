@@ -20,6 +20,7 @@
                 </thead>
                 <tbody>
                 @foreach(\App\Prodi::orderBy('nama')->get() as $item)
+                    {{ html_entity_decode(str_replace('</p>','',str_replace('<p>','',(str_replace('<img src="', '<img src="'.substr(asset(''),0,-1), $item->keterangan))))) }}
                     <tr>
                         {{--@include('mceImageUpload::upload_form')--}}
                         <form action="{{ route('update.prodi') }}" method="post">
@@ -30,7 +31,6 @@
                                        value="{{ $item->nama }}">
                             </td>
                             <td width="65%">
-                                {{ str_replace('<img src="', '<img src="'.substr(asset(''),0,-1), $item->keterangan) }}
                                 <textarea class="form-control" rows="25" name="keterangan">{{ $item->keterangan }}</textarea>
                             </td>
                             <td width="15%">
