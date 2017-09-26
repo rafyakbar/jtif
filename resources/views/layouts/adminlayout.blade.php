@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Website Jurusan Teknik Informatika Unesa </title>
+    <title>@yield('Title') Website Jurusan Teknik Informatika Unesa </title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,27 +11,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/css/app.css')}}">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/vendor.css') }}">
     <!-- Theme initialization -->
-    <link rel="stylesheet" href="{{asset('css/appadm.css')}}">
-    <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/appadm.js') }}"></script>
-    <script>
-        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
-            {};
-        var themeName = themeSettings.themeName || '';
-        if (themeName)
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
-        }
-        else
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="{{asset('css/appadm.css')}}css/app.css">');
-        }
-    </script>
+    <link rel="stylesheet" href="{{asset('admin/css/appadm.css')}}">
+    <script src="{{ asset('admin/js/vendor.js') }}"></script>
+    <link rel="stylesheet" id="theme-style" href="{{asset('admin/css/app-orange.css')}}">
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         $().ready(function () {
@@ -254,7 +241,9 @@
         <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
         <div class="mobile-menu-handle"></div>
         <article class="content dashboard-page">
+
             @yield('content')
+
         </article>
         <footer class="footer">
             <div class="footer-block buttons">
