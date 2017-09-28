@@ -30,7 +30,7 @@
                             </td>
                             <td width="65%">
                                 {!! str_replace('</p>','',str_replace('<p>','',(str_replace('<img src="', '<img class="img img-responsive" src="'.substr(asset(''),0,-1), $item->keterangan)))) !!}
-                                <textarea class="form-control" rows="25" name="keterangan">{{ $item->keterangan }}</textarea>
+                                <textarea class="form-control" rows="25" name="keterangan">{{ (str_replace('<img src="', '<img class="img img-responsive" src="'.substr(asset(''),0,-1), $item->keterangan)) }}</textarea>
                             </td>
                             <td width="15%">
                                 <input type="submit" class="btn btn-pill-left btn-primary" value="Simpan">
