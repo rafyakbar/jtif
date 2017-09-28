@@ -14,20 +14,9 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/vendor.css') }}">
     <!-- Theme initialization -->
-    <link rel="stylesheet" href="{{asset('css/appadm.css')}}">
-    <script>
-        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
-            {};
-        var themeName = themeSettings.themeName || '';
-        if (themeName) {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
-        }
-        else {
-            document.write('<link rel="stylesheet" id="theme-style" href="{{asset('css/appadm.css')}}css/app.css">');
-        }
-    </script>
+    <link rel="stylesheet" href="{{asset('admin/css/app-orange.css')}}">
 </head>
 <body>
 <div class="auth">
