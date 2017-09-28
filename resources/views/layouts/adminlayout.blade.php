@@ -36,7 +36,7 @@
                 file_browser_callback: function(field_name, url, type, win) {
                     // trigger file upload form
                     if (type == 'image') $('#formUpload input').click();
-                }
+                },
             });
 
         });
