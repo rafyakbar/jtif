@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Rafy
- * Date: 26/09/2017
- * Time: 23.31
- */
+@extends('layouts.adminlayout')
+
+@section('content')
+
+@endsection

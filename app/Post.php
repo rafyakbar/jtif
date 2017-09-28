@@ -9,7 +9,7 @@ class Post extends Model
     protected $table = 'post';
 
     protected $fillable = [
-        'user_id', 'menu_id', 'isi', 'dir', 'created_at', 'updated_at'
+        'user_id', 'menu_id', 'judul', 'isi', 'dir', 'created_at', 'updated_at'
     ];
 
     public function user(){

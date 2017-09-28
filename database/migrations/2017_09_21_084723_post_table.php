@@ -19,6 +19,7 @@ class PostTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->integer('menu_id')->unsigned()->nullable();
             $table->foreign('menu_id')->references('id')->on('menu')->onUpdate('CASCADE')->onDelete('SET NULL');
+            $table->string('judul');
             $table->text('isi');
             $table->text('dir')->nullable();
             $table->timestamps();

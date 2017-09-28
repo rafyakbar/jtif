@@ -14,6 +14,16 @@ Route::group(['prefix' => 'daftar'], function (){
         'as' => 'daftar.menu'
     ]);
 
+    Route::get('post/{menu_id}', [
+        'uses' => 'PostController@daftar',
+        'as' => 'daftar.post.menu'
+    ]);
+
+    Route::get('post/{menu_id}/{post_id}', [
+        'uses' => 'PostController@daftar',
+        'as' => 'daftar.post.post'
+    ]);
+
     Route::get('pegawai', [
         'uses' => 'PegawaiController@daftar',
         'as' => 'daftar.pegawai'
@@ -31,6 +41,11 @@ Route::group(['prefix' => 'tambah'], function (){
     Route::post('menu', [
         'uses' => 'MenuController@tambah',
         'as' => 'tambah.menu'
+    ]);
+
+    Route::post('post', [
+        'uses' => 'PostController@tambah',
+        'as' => 'tambah.post'
     ]);
 
     Route::post('pegawai', [

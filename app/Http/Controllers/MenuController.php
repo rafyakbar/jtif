@@ -14,6 +14,8 @@ class MenuController extends Controller
 
     public function tambah(Request $request)
     {
+        Menu::cekDuplikasi($request->nama);
+
         Menu::create([
             'nama' => $request->nama,
             'banyak_konten' => $request->banyak_konten

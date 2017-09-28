@@ -18,4 +18,13 @@ class Menu extends Model
     {
         $this->hasMany('App\Post', 'menu_id')->get();
     }
+
+    public static function cekDuplikasi($nama)
+    {
+        foreach (self::all() as $item){
+            if (strtolower($item->nama) == strtolower($nama)){
+                return back()->with('message', 'Terdapat duplikasi menu!');
+            }
+        }
+    }
 }

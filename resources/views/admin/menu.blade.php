@@ -1,6 +1,11 @@
 @extends('layouts.adminlayout')
 
 @section('content')
+    @if(session()->has('message'))
+        <div class="alert alert-danger">
+            <strong>{{ session()->get('message') }}</strong>
+        </div>
+    @endif
     <div class="card card-block sameheight-item">
         <div class="title-block">
             <h3 class="title"> Tambah Menu </h3>
