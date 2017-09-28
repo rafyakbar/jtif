@@ -10,12 +10,12 @@ Route::group(['prefix' => 'daftar'], function (){
         'as' => 'daftar.menu'
     ]);
 
-    Route::get('post/{menu_id}', [
+    Route::get('post/{menu}', [
         'uses' => 'PostController@daftar',
         'as' => 'daftar.post.menu'
     ]);
 
-    Route::get('post/{menu_id}/{post_id}', [
+    Route::get('post/{menu}/{post_id}', [
         'uses' => 'PostController@daftar',
         'as' => 'daftar.post.post'
     ]);
@@ -85,6 +85,11 @@ Route::group(['prefix' => 'update'], function (){
     Route::post('prodi', [
         'uses' => 'ProdiController@update',
         'as' => 'update.prodi'
+    ]);
+
+    Route::post('post', [
+        'uses' => 'PostController@update',
+        'as' => 'update.post'
     ]);
 
 });

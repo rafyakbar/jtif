@@ -27,4 +27,9 @@ class Menu extends Model
             }
         }
     }
+
+    public static function searchByName($nama)
+    {
+        return self::where('nama','=',$nama)->first();
+    }
 }

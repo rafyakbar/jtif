@@ -11,11 +11,16 @@ class PostController extends Controller
 {
     public function daftar(Request $request)
     {
-        $menu = Menu::find($request->menu_id);
+        $menu = Menu::searchByName(str_replace('_',' ',$request->menu));
 
         if ($menu->banyak_konten){
             return view('admin.listpost', [
                 'menu_id' => $request->menu_id
+            ]);
+        }
+        else{
+            return view('admin.post', [
+                'post' => Post::find($request->post_id)
             ]);
         }
     }
