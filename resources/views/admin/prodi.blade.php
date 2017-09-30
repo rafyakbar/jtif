@@ -24,7 +24,7 @@
                         <form action="{{ route('update.prodi') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="{{ $item->id }}">
-                            <td width="20%">
+                            <td width="25%">
                                 <input type="text" name="nama" class="form-control underlined"
                                        value="{{ $item->nama }}">
                                 <br>
@@ -40,9 +40,9 @@
                                     {{ $item->keterangan }}
                                 </textarea>
                             </td>
-                            <td width="15%">
-                                <input type="submit" class="btn btn-pill-left btn-primary" value="Simpan">
-                                <button class="btn btn-pill-right btn-danger"
+                            <td width="10%">
+                                <input type="submit" class="btn btn-primary" value="Simpan">
+                                <button class="btn btn-danger"
                                         onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();">
                                     Hapus
                                 </button>

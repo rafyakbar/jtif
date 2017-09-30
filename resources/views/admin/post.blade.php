@@ -15,7 +15,7 @@
                 <label>Isi</label>
                 <textarea name="isi" required>{{ $post->isi }}</textarea>
                 <br>
-                <label>File (jika ada atau kosongkan jika telah mengipload file sebelumnya)</label>
+                <label>File (jika ada atau kosongkan jika telah mengupload file sebelumnya)</label>
                 <input type="file" class="form-control">
                 <br>
                 <input type="submit" class="btn btn-oval btn-primary" value="Simpan">

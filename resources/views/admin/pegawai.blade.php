@@ -36,10 +36,10 @@
                             <p>{{ $item->jabatan }}</p>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-pill-left btn-primary" data-toggle="modal"
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#{{ $item->id }}">Edit
                             </button>
-                            <button class="btn btn-pill-right btn-danger"
+                            <button class="btn btn-danger"
                                     onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
                                 Hapus
                             </button>

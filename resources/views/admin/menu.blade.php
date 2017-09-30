@@ -56,11 +56,11 @@
                                 <input type="radio" name="banyak_konten" value="0" @if(!$item->banyak_konten) checked @endif required>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-pill-left btn-primary" @if($item->nama == 'Berita') disabled @endif>
+                                <button type="submit" class="btn btn-primary" @if($item->nama == 'Berita') disabled @endif>
                                     Simpan
                                 </button>
                                 <a href="{{ route('daftar.post', ['menu' => str_replace(' ', '_',  $item->nama)]) }}" class="btn btn-info">Lihat post</a>
-                                <button class="btn btn-pill-right btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();" @if($item->nama == 'Berita') disabled @endif>
+                                <button class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();" @if($item->nama == 'Berita') disabled @endif>
                                     Hapus
                                 </button>
                             </td>

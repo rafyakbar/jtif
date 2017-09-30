@@ -32,8 +32,8 @@
                             <p>{{ $item->created_at }}</p>
                         </td>
                         <td>
-                            <a class="btn btn-pill-left btn-primary" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
-                            <button class="btn btn-pill-right btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
+                            <a class="btn btn-primary" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
+                            <button class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
                         </td>
                     </tr>
                     <form action="{{ route('hapus.post') }}" method="post" id="{{ $item->id }}">
@@ -61,7 +61,7 @@
                             </h3>
                         </div>
                         <section class="example">
-                            <form action="{{ route('tambah.post') }}" method="post" enctype="multipart/form-data" id="tambah">
+                            <form action="{{ route('tambah.post') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="menu_id" value="{{ $menu_id }}">
                                 <label>Judul</label>
@@ -72,9 +72,10 @@
                                 <br>
                                 <label>File</label>
                                 <input type="file" name="dir" class="form-control">
+                                <br>
+                                <input type="submit" class="btn btn-primary" value="Simpan">
                             </form>
                             <br>
-                            <button class="btn btn-oval btn-primary" onclick="event.preventDefault(); document.getElementById('tambah').submit();">Tambah post</button>
                         </section>
                     </div>
                 </div>
