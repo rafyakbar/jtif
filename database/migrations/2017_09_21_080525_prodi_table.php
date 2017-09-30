@@ -17,6 +17,7 @@ class ProdiTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->text('keterangan');
+            $table->text('dir')->nullable();
         });
     }
 
