@@ -59,7 +59,7 @@
                                 <button type="submit" class="btn btn-pill-left btn-primary" @if($item->nama == 'Berita') disabled @endif>
                                     Simpan
                                 </button>
-                                <a href="" class="btn btn-info">Lihat post</a>
+                                <a href="{{ route('daftar.post', ['menu' => str_replace(' ', '_',  $item->nama)]) }}" class="btn btn-info">Lihat post</a>
                                 <button class="btn btn-pill-right btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();" @if($item->nama == 'Berita') disabled @endif>
                                     Hapus
                                 </button>

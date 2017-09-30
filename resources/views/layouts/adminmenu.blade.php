@@ -14,7 +14,7 @@
             <ul class="sidebar-nav">
                 @foreach(\App\Menu::all() as $item)
                     <li>
-                        <a href="{{ route('daftar.post.menu', ['menu' => str_replace(' ', '_',  $item->nama)]) }}">{{ $item->nama }}</a>
+                        <a href="{{ route('daftar.post', ['menu' => str_replace(' ', '_',  $item->nama)]) }}">{{ $item->nama }}</a>
                     </li>
                 @endforeach
             </ul>

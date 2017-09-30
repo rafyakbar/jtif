@@ -18,15 +18,15 @@ class MenuController extends Controller
     {
         Menu::cekDuplikasi($request->nama);
 
-        $id = Menu::create([
+        $menu = Menu::create([
             'nama' => $request->nama,
             'banyak_konten' => $request->banyak_konten
         ]);
 
-        if ($request->banyak_konten){
+        if (!$request->banyak_konten){
             Post::create([
                 'user_id' => Auth::user()->id,
-                'menu_id' => $id,
+                'menu_id' => $menu->id,
                 'judul' => '-',
                 'isi' => 'Paragraf 1<br>(letakkan foto di antar enter)<br>Paragraf 2'
             ]);
