@@ -13,7 +13,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Nama</th>
+                    <th>Nama & File</th>
                     <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
@@ -21,12 +21,18 @@
                 <tbody>
                 @foreach(\App\Prodi::orderBy('nama')->get() as $item)
                     <tr>
-                        <form action="{{ route('update.prodi') }}" method="post">
+                        <form action="{{ route('update.prodi') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="{{ $item->id }}">
                             <td width="20%">
                                 <input type="text" name="nama" class="form-control underlined"
                                        value="{{ $item->nama }}">
+                                <br>
+                                <input type="file" name="dir" class="form-control">
+                                <br>
+                                @if(!is_null($item->dir))
+                                    <a href="{{ asset($item->dir) }}">File link download</a>
+                                @endif
                             </td>
                             <td width="65%">
                                 {{--{!! str_replace('<img', '<img class="img img-responsive"', $item->keterangan) !!}--}}
@@ -62,6 +68,9 @@
                                         <br>
                                         <label>Keterangan</label>
                                         <textarea class="form-control" rows="25" name="keterangan"></textarea>
+                                        <br>
+                                        <label>File (jika ada)</label>
+                                        <input type="file" name="dir" class="form-control">
                                     </form>
                                 </div>
                                 <div class="modal-footer">
