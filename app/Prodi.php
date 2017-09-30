@@ -9,7 +9,7 @@ class Prodi extends Model
     protected $table = 'prodi';
 
     protected $fillable = [
-        'nama', 'keterangan'
+        'nama', 'keterangan', 'dir'
     ];
 
     public $timestamps = false;

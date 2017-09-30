@@ -15,11 +15,12 @@
                 <tr>
                     <th>Penulis</th>
                     <th>Judul</th>
+                    <th>Tanggal</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach(\App\Post::orderBy('created_at')->get() as $item)
+                @foreach(\App\Post::where('menu_id','=',$menu_id)->orderBy('created_at')->get() as $item)
                     <tr>
                         <td>
                             <p>{{ \App\User::find($item->user_id)->name }}</p>
@@ -28,10 +29,17 @@
                             <strong>{{ $item->judul }}</strong>
                         </td>
                         <td>
-                            <a class="btn btn-pill-left btn-primary">Edit</a>
-                            <button class="btn btn-pill-right btn-danger">Hapus</button>
+                            <p>{{ $item->created_at }}</p>
+                        </td>
+                        <td>
+                            <a class="btn btn-pill-left btn-primary" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
+                            <button class="btn btn-pill-right btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
                         </td>
                     </tr>
+                    <form action="{{ route('hapus.post') }}" method="post" id="{{ $item->id }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $item->id }}">
+                    </form>
                 @endforeach
                 </tbody>
             </table>

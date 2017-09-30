@@ -13,14 +13,17 @@ class PostController extends Controller
     {
         $menu = Menu::searchByName(str_replace('_',' ',$request->menu));
 
-        if ($menu->banyak_konten){
+        if ($menu->banyak_konten && is_null($request->post_id)){
             return view('admin.listpost', [
-                'menu_id' => $request->menu_id
+                'menu_id' => $menu->id
             ]);
         }
         else{
+            if (!$menu->banyak_konten){
+                $request->post_id = Post::where('menu_id','=',$menu->id)->first()->id;
+            }
             return view('admin.post', [
-                'post' => Post::find($request->post_id)
+                'post' => Post::find($request->post_id),
             ]);
         }
     }
@@ -34,6 +37,24 @@ class PostController extends Controller
             'isi' => $request->isi,
             'dir' => $request->dir
         ]);
+
+        return back();
+    }
+
+    public function update(Request $request)
+    {
+        Post::find($request->id)->update([
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'dir' => $request->dir
+        ]);
+
+        return back();
+    }
+
+    public function hapus(Request $request)
+    {
+        Post::find($request->id)->delete();
 
         return back();
     }

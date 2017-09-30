@@ -16,7 +16,8 @@ class ProdiController extends Controller
     {
         Prodi::find($request->id)->update([
             'nama' => $request->nama,
-            'keterangan' => $request->keterangan
+            'keterangan' => $request->keterangan,
+            'dir' => $request->dir
         ]);
 
         return back();
@@ -26,7 +27,8 @@ class ProdiController extends Controller
     {
         Prodi::create([
             'nama' => $request->nama,
-            'keterangan' => $request->keterangan
+            'keterangan' => $request->keterangan,
+            'dir' => $request->dir
         ]);
 
         return back();

@@ -12,7 +12,7 @@ Route::group(['prefix' => 'daftar'], function (){
 
     Route::get('post/{menu}', [
         'uses' => 'PostController@daftar',
-        'as' => 'daftar.post.menu'
+        'as' => 'daftar.post'
     ]);
 
     Route::get('post/{menu}/{post_id}', [
@@ -68,6 +68,11 @@ Route::group(['prefix' => 'hapus'], function (){
         'as' => 'hapus.pegawai'
     ]);
 
+    Route::post('post', [
+        'uses' => 'PostController@hapus',
+        'as' => 'hapus.post'
+    ]);
+
 });
 
 Route::group(['prefix' => 'update'], function (){
@@ -75,6 +80,11 @@ Route::group(['prefix' => 'update'], function (){
     Route::post('menu', [
         'uses' => 'MenuController@update',
         'as' => 'update.menu'
+    ]);
+
+    Route::post('post', [
+        'uses' => 'PostController@update',
+        'as' => 'update.post'
     ]);
 
     Route::post('pegawai', [
