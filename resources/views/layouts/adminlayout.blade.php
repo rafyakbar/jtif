@@ -11,15 +11,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="{{ asset('admin/css/vendor.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/vendor.css' ) }}">
     <!-- Theme initialization -->
-    <link rel="stylesheet" href="{{asset('admin/css/appadm.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin/css/app-orange.css') }}">
     <script src="{{ asset('admin/js/vendor.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('admin/js/appadm.js') }}"></script>
-    <link rel="stylesheet" id="theme-style" href="{{asset('admin/css/app-orange.css')}}">
     <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
     <script>
         $().ready(function () {
