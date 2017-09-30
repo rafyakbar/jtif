@@ -16,7 +16,10 @@
                 <textarea name="isi" required>{{ $post->isi }}</textarea>
                 <br>
                 <label>File (jika ada atau kosongkan jika telah mengupload file sebelumnya)</label>
-                <input type="file" class="form-control">
+                @if(!is_null($post->dir))
+                    <a href="{{ asset($post->dir) }}">Link file sebelumnya</a>
+                @endif
+                <input type="file" class="form-control" name="dir">
                 <br>
                 <input type="submit" class="btn btn-oval btn-primary" value="Simpan">
             </section>

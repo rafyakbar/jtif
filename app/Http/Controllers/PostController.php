@@ -6,6 +6,7 @@ use App\Menu;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -30,24 +31,44 @@ class PostController extends Controller
 
     public function tambah(Request $request)
     {
-        Post::create([
+        $post = Post::create([
             'user_id' => Auth::user()->id,
             'menu_id' => $request->menu_id,
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'dir' => $request->dir
         ]);
+
+        if (Input::has('dir')){
+            $nama = $request->file('dir')->getClientOriginalName();
+            $nama = 'post_'.$post->id.'_'.str_replace(' ','_',$nama);
+            $post->update([
+                'dir' => 'etc/post/'.$nama
+            ]);
+            Input::file('dir')->move('etc/post', $nama);
+        }
 
         return back();
     }
 
     public function update(Request $request)
     {
-        Post::find($request->id)->update([
+        $post = Post::find($request->id);
+        $post->update([
             'judul' => $request->judul,
             'isi' => $request->isi,
-            'dir' => $request->dir
         ]);
+
+        if (Input::has('dir')){
+            $nama = $request->file('dir')->getClientOriginalName();
+            $nama = 'post_'.$post->id.'_'.str_replace(' ','_',$nama);
+            if (!is_null($post->dir))
+                if (file_exists($post->dir))
+                    unlink($post->dir);
+            $post->update([
+                'dir' => 'etc/post/'.$nama
+            ]);
+            Input::file('dir')->move('etc/post', $nama);
+        }
 
         return back();
     }
