@@ -26,7 +26,7 @@
             <a href="{{ route('daftar.pegawai') }}"><i class="fa fa-users"></i> Pegawai</a>
         </li>
         <li @if(Route::currentRouteName() === 'daftar.prasarana') class="active" @endif>
-            <a href=""><i class="fa fa-laptop"></i> Prasarana</a>
+            <a href="{{ route('daftar.prasarana') }}"><i class="fa fa-laptop"></i> Prasarana</a>
         </li>
         <li @if(Route::currentRouteName() === 'daftar.lain-lain') class="active" @endif>
             <a href=""><i class="fa fa-gears"></i> Lain-lain</a>

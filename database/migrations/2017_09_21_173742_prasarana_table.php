@@ -17,7 +17,6 @@ class PrasaranaTable extends Migration
             $table->increments('id');
             $table->string('nama')->unique();
             $table->text('keterangan');
-            $table->text('dir')->nullable();
         });
     }
 

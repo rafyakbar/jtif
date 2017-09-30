@@ -30,6 +30,11 @@ Route::group(['prefix' => 'daftar'], function (){
         'as' => 'daftar.prodi'
     ]);
 
+    Route::get('prasarana', [
+        'uses' => 'PrasaranaController@daftar',
+        'as' => 'daftar.prasarana'
+    ]);
+
 });
 
 Route::group(['prefix' => 'tambah'], function (){
@@ -52,6 +57,10 @@ Route::group(['prefix' => 'tambah'], function (){
     Route::post('prodi', [
         'uses' => 'ProdiController@tambah',
         'as' => 'tambah.prodi'
+    ]);
+
+    Route::post('prasarana', [
+
     ]);
 
 });
