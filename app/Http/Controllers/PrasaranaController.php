@@ -12,18 +12,30 @@ class PrasaranaController extends Controller
         return view('admin.prasarana');
     }
 
-    public function tambah()
+    public function tambah(Request $request)
     {
+        Prasarana::create([
+            'nama' => $request->nama,
+            'keterangan' => $request->keterangan
+        ]);
 
+        return back();
     }
 
     public function update(Request $request)
     {
+        Prasarana::find($request->id)->update([
+            'nama' => $request->nama,
+            'keterangan' => $request->keterangan
+        ]);
 
+        return back();
     }
 
     public function hapus(Request $request)
     {
+        Prasarana::find($request->id)->delete();
 
+        return back();
     }
 }

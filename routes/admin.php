@@ -60,7 +60,8 @@ Route::group(['prefix' => 'tambah'], function (){
     ]);
 
     Route::post('prasarana', [
-
+        'uses' => 'PrasaranaController@tambah',
+        'as' => 'tambah.prasarana'
     ]);
 
 });
@@ -80,6 +81,11 @@ Route::group(['prefix' => 'hapus'], function (){
     Route::post('post', [
         'uses' => 'PostController@hapus',
         'as' => 'hapus.post'
+    ]);
+
+    Route::post('prasarana', [
+        'uses' => 'PrasaranaController@hapus',
+        'as' => 'hapus.prasarana'
     ]);
 
 });
@@ -109,6 +115,11 @@ Route::group(['prefix' => 'update'], function (){
     Route::post('post', [
         'uses' => 'PostController@update',
         'as' => 'update.post'
+    ]);
+
+    Route::post('prasarana', [
+        'uses' => 'PrasaranaController@update',
+        'as' => 'update.prasarana'
     ]);
 
 });
