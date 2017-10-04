@@ -31,7 +31,7 @@
                                 <input type="file" name="dir" class="form-control">
                                 <br>
                                 @if(!is_null($item->dir))
-                                    <a href="{{ asset($item->dir) }}">File link download</a>
+                                    <a href="{{ asset($item->dir) }}">link download sebelumnya</a>
                                 @endif
                             </td>
                             <td width="65%">
@@ -41,9 +41,8 @@
                                 </textarea>
                             </td>
                             <td width="10%">
-                                <input type="submit" class="btn btn-primary" value="Simpan">
-                                <button class="btn btn-danger"
-                                        onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();">
+                                <input type="submit" class="btn btn-primary btn-sm" value="Simpan">
+                                <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();">
                                     Hapus
                                 </button>
                             </td>

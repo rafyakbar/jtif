@@ -198,7 +198,6 @@
                                 </div>
                             </li>
                         </ul>
-                        <a href=""><i class="fa fa-cog"></i> Kustomisasi</a>
                     </li>
                 </ul>
             </footer>

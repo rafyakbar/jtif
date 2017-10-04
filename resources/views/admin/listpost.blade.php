@@ -32,8 +32,10 @@
                             <p>{{ $item->created_at }}</p>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
-                            <button class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
+                            <div class="btn-group">
+                                <a class="btn btn-primary btn-sm" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
+                                <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
+                            </div>
                         </td>
                     </tr>
                     <form action="{{ route('hapus.post') }}" method="post" id="{{ $item->id }}">

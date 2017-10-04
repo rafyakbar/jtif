@@ -51,8 +51,6 @@
                                         <br>
                                         <label>Keterangan</label>
                                         <textarea name="keterangan">{{ $item->keterangan }}</textarea>
-                                        {{--<br>--}}
-                                        {{--<input type="submit" class="btn btn-primary" value="Simpan">--}}
                                     </form>
                                 </div>
                                 <div class="modal-footer">

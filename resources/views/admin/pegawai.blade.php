@@ -36,13 +36,14 @@
                             <p>{{ $item->jabatan }}</p>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#{{ $item->id }}">Edit
-                            </button>
-                            <button class="btn btn-danger"
-                                    onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
-                                Hapus
-                            </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                        data-target="#{{ $item->id }}">Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
+                                    Hapus
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <form action="{{ route('hapus.pegawai') }}" method="post" id="hapus-{{ $item->id }}">

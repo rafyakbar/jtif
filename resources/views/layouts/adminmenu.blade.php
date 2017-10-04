@@ -28,6 +28,12 @@
         <li @if(Route::currentRouteName() === 'daftar.prasarana') class="active" @endif>
             <a href="{{ route('daftar.prasarana') }}"><i class="fa fa-laptop"></i> Prasarana</a>
         </li>
+        <li @if(Route::currentRouteName() === 'daftar.galeri') class="active" @endif>
+            <a href="{{ route('daftar.prasarana') }}"><i class="fa fa-image"></i> Galeri</a>
+        </li>
+        <li @if(Route::currentRouteName() === 'daftar.admin') class="active" @endif>
+            <a href=""><i class="fa fa-user-circle"></i> Admin</a>
+        </li>
         <li @if(Route::currentRouteName() === 'daftar.lain-lain') class="active" @endif>
             <a href=""><i class="fa fa-gears"></i> Lain-lain</a>
         </li>
