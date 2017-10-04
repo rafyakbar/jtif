@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class GaleriTable extends Migration
+class CarouselTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class GaleriTable extends Migration
      */
     public function up()
     {
-        Schema::create('galeri', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('nama')->unique();
+        Schema::create('carousel', function (Blueprint  $table){
+            $table->bigIncrements('id');
+            $table->text('keterangan');
+            $table->text('dir');
+            $table->timestamps();
         });
     }
 

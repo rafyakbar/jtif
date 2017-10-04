@@ -3,6 +3,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
+Route::get('carousel', function (){
+    return view('admin.carousel', ['c' => 0]);
+})->name('carousel');
+
 Route::group(['prefix' => 'daftar'], function (){
 
     Route::get('menu', [
