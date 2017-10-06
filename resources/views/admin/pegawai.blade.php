@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="modal-body">
                                     @if(!is_null($item->dir))
-                                        <img src="{{ asset($item->dir) }}" class="img img-responsive">
+                                        <img src="{{ asset($item->dir) }}" class="img img-responsive" width="100%" height="100%">
                                     @else
                                         <br>
                                         <br>
@@ -93,6 +93,7 @@
                                             @if(!is_null($item->prodi_id))
                                                 <option value="{{ $item->prodi_id }}" selected>{{ \App\Prodi::find($item->prodi_id)->nama }}</option>
                                             @endif
+                                            <option>-</option>
                                             @foreach(\App\Prodi::all() as $prodi)
                                                 <option value="{{ $prodi->id }}">{{ $prodi->nama }}</option>
                                             @endforeach
@@ -127,7 +128,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambah pegawai</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('tambah.pegawai') }}" method="post" id="tambah-form">
+                    <form action="{{ route('tambah.pegawai') }}" method="post" id="tambah-form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <label>Foto (kosongi jika foto tidak ada)</label>
                         <input type="file" name="dir" accept="image/jpeg" class="form-control underlined">
@@ -147,7 +148,7 @@
                         <br>
                         <label>Prodi</label>
                         <select name="prodi_id" class="form-control underlined" required>
-                            <option></option>
+                            <option>-</option>
                             @foreach(\App\Prodi::all() as $prodi)
                                 <option value="{{ $prodi->id }}">{{ $prodi->nama }}</option>
                             @endforeach

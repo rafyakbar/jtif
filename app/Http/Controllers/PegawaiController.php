@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pegawai;
 use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
 
 class PegawaiController extends Controller
 {
@@ -15,7 +16,8 @@ class PegawaiController extends Controller
 
     public function update(Request $request)
     {
-        Pegawai::find($request->old_id)->update([
+        $pegawai = Pegawai::find($request->old_id);
+        $pegawai->update([
             'id' => $request->id,
             'prodi_id' => $request->prodi_id,
             'nama' => $request->nama,
@@ -25,21 +27,14 @@ class PegawaiController extends Controller
 
         if (Input::has('dir')){
             $this->validate($request, [
-                'dir' => 'image|mimes:jpeg,jpg|max:2048'
+                'dir' => 'image|mimes:jpeg,jpg'
             ]);
 
-            $nama_file = $request->id . '_' . Pegawai::find($request->id)->updated_at . '.jpg';
-            $nama_file = str_replace(' ', '_', $nama_file);
-            $nama_file = str_replace(':', '-', $nama_file);
-            Input::file('dir')->move('img/pegawai', $nama_file);
-
-            if (!is_null(Pegawai::find($request->id)->dir))
-                if (file_exists(Pegawai::find($request->id)->dir))
-                    unlink(Pegawai::find($request->id)->dir);
-
-            Pegawai::find($request->id)->update([
-                'dir' => 'img/pegawai/'.$nama_file
-            ]);
+            $image = Image::make(Input::file('dir'));
+            $sisi = ($image->width() > $image->height()) ? $image->height() : $image->width();
+            $image->crop($sisi, $sisi)->save('img/carousel/'.$pegawai->id.'.'.$request->file('dir')->extension());
+            $pegawai->dir = 'img/carousel/'.$pegawai->id.'.'.$request->file('dir')->extension();
+            $pegawai->save();
 
             return back()->with('message', 'Berhasil memperbarui data '.$request->nama.' (dengan foto)');
         }
@@ -56,13 +51,21 @@ class PegawaiController extends Controller
             'jenis_kelamin' => 'required'
         ]);
 
-        Pegawai::create([
+        $pegawai = Pegawai::create([
             'id' => $request->id,
             'prodi_id' => $request->prodi_id,
             'nama' => $request->nama,
             'jenis_kelamin' => 'Pria',
             'jabatan' => $request->jabatan,
         ]);
+
+        if (Input::has('dir')){
+            $image = Image::make(Input::file('dir'));
+            $sisi = ($image->width() > $image->height()) ? $image->height() : $image->width();
+            $image->crop($sisi, $sisi)->save('img/carousel/'.$pegawai->id.'.'.$request->file('dir')->extension());
+            $pegawai->dir = 'img/carousel/'.$pegawai->id.'.'.$request->file('dir')->extension();
+            $pegawai->save();
+        }
 
         return back()->with('message', 'Berhasil menambahkan '.$request->nama);
     }
