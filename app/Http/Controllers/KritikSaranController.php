@@ -10,7 +10,7 @@ class KritikSaranController extends Controller
     public function tambah(Request $request)
     {
         $this->validate($request, [
-            'isi' => 'required'
+            'isi' => 'required|min:15'
         ]);
 
         KritikSaran::create([

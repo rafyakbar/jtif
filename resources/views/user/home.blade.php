@@ -4,6 +4,9 @@
 
 @section('content')
 <div class="section" id="carousel">
+    @if(session()->has('message'))
+        <div class="alert alert-info">{{ session()->get('message') }}</div>
+    @endif
     <div class="col">
         <h4>Carousel</h4>
     </div>
@@ -80,7 +83,7 @@
                     <div class="card-body">
                         <div class="input-group form-group-no-border">
 
-                            <textarea name="isi" rows="5" class="form-control" placeholder="Tulis kritik dan saranmu di sini..."></textarea>
+                            <textarea name="isi" rows="5" class="form-control" placeholder="Tulis kritik dan saranmu (minimal 15 karakter) di sini..." minlength="15"></textarea>
                         </div>
                         <!-- If you want to add a checkbox to this form, uncomment this code -->
                         <!-- <div class="checkbox">
