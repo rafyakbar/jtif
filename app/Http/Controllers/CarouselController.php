@@ -9,6 +9,11 @@ use App\Carousel;
 
 class CarouselController extends Controller
 {
+    public function daftar()
+    {
+        return view('admin.carousel', ['c' => 0]);
+    }
+
     public function tambah(Request $request)
     {
         $this->validate($request, [

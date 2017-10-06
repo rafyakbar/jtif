@@ -3,10 +3,6 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
-Route::get('carousel', function (){
-    return view('admin.carousel', ['c' => 0]);
-})->name('carousel');
-
 Route::group(['prefix' => 'daftar'], function (){
 
     Route::get('menu', [
@@ -37,6 +33,16 @@ Route::group(['prefix' => 'daftar'], function (){
     Route::get('prasarana', [
         'uses' => 'PrasaranaController@daftar',
         'as' => 'daftar.prasarana'
+    ]);
+
+    Route::get('carousel', [
+        'uses' => 'CarouselController@daftar',
+        'as' => 'daftar.carousel'
+    ]);
+
+    Route::get('admin', [
+        'uses' => 'UserController@daftar',
+        'as' => 'daftar.admin'
     ]);
 
 });
@@ -71,6 +77,11 @@ Route::group(['prefix' => 'tambah'], function (){
     Route::post('carousel', [
         'uses' => 'CarouselController@tambah',
         'as' => 'tambah.carousel'
+    ]);
+
+    Route::post('admin', [
+        'uses' => 'UserController@tambah',
+        'as' => 'tambah.admin'
     ]);
 
 });
@@ -139,6 +150,11 @@ Route::group(['prefix' => 'update'], function (){
     Route::post('carousel', [
         'uses' => 'CarouselController@update',
         'as' => 'update.carousel'
+    ]);
+
+    Route::post('admin', [
+        'uses' => 'UserController@update',
+        'as' => 'update.admin'
     ]);
 
 });
