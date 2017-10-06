@@ -23,3 +23,9 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\KritikSaran::class, function (Faker $faker) {
+    return [
+        'isi' => $faker->text(rand(15, 500))
+    ];
+});

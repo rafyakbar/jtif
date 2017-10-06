@@ -19,4 +19,6 @@ Route::get('/', function () {
     return view('user.home');
 });
 
-Route::post('kritik_dan_saran', 'KritikSaranController@tambah')->name('tambah.kritik_dan_saran');
+Route::post('tambah/kritik_dan_saran', 'KritikSaranController@tambah')->name('tambah.kritik_dan_saran');
+
+Route::post('hapus/kritik_dan_saran', 'KritikSaranController@hapus')->name('hapus.kritik_dan_saran');

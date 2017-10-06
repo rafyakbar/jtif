@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call('PegawaiSeeder');
         $this->call('PrasaranaSeeder');
         $this->call('MenuSeeder');
+        $this->call('KritikSaranSeeder');
     }
 }
