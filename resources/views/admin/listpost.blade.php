@@ -33,8 +33,12 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-pill-left btn-primary btn-sm" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
-                                <button class="btn btn-pill-right btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
+                                <a class="btn btn-pill-left btn-primary btn-sm"
+                                   href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
+                                <button class="btn btn-pill-right btn-danger btn-sm"
+                                        onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">
+                                    Hapus
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -56,30 +60,22 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambah post</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="card card-block">
-                        <div class="title-block">
-                            <h3 class="title">
-                                Tambah post
-                            </h3>
-                        </div>
-                        <section class="example">
-                            <form action="{{ route('tambah.post') }}" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="menu_id" value="{{ $menu_id }}">
-                                <label>Judul</label>
-                                <input type="text" class="form-control underlined" name="judul" required>
-                                <br>
-                                <label>Isi</label>
-                                <textarea name="isi" required>Paragraf 1<br>(masukkan gambar diantara enter)<br>Paragraf 2</textarea>
-                                <br>
-                                <label>File</label>
-                                <input type="file" name="dir" class="form-control">
-                                <br>
-                                <input type="submit" class="btn btn-primary" value="Simpan">
-                            </form>
-                            <br>
-                        </section>
-                    </div>
+                    <form action="{{ route('tambah.post') }}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="menu_id" value="{{ $menu_id }}">
+                        <label>Judul</label>
+                        <input type="text" class="form-control underlined" name="judul" required>
+                        <br>
+                        <label>Isi</label>
+                        <textarea name="isi"
+                                  required>Paragraf 1<br>(masukkan gambar diantara enter)<br>Paragraf 2</textarea>
+                        <br>
+                        <label>File</label>
+                        <input type="file" name="dir" class="form-control">
+                        <br>
+                        <input type="submit" class="btn btn-oval btn-primary" value="Simpan">
+                    </form>
+                    <br>
                 </div>
             </div>
         </div>

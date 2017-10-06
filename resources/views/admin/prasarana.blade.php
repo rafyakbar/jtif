@@ -6,7 +6,7 @@
         <div class="title-block">
             <h3 class="title">
                 Daftar prasarana&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-oval btn-primary" data-toggle="modal" data-target="#tambah">Tambah post</button>
+                <button class="btn btn-oval btn-primary" data-toggle="modal" data-target="#tambah">Tambah prasarana</button>
             </h3>
         </div>
         <section class="example">
@@ -86,8 +86,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('tambah-form').submit();">Simpan</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-pill-left btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button class="btn btn-pill-right btn-primary" onclick="event.preventDefault(); document.getElementById('tambah-form').submit();">Simpan</button>
+                    </div>
                 </div>
             </div>
         </div>

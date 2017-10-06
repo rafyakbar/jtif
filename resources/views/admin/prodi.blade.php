@@ -26,11 +26,11 @@
                                 </textarea>
                             <br>
                             <label>File</label>
+                            @if(!is_null($item->dir))
+                                <a href="{{ asset($item->dir) }}">(link download sebelumnya)</a>
+                            @endif
                             <input type="file" name="dir" class="form-control">
                             <br>
-                            @if(!is_null($item->dir))
-                                <a href="{{ asset($item->dir) }}">link download sebelumnya</a>
-                            @endif
                             <div class="btn-group">
                                 <input type="submit" class="btn btn-pill-left btn-primary btn-sm" value="Simpan">
                                 <button class="btn btn-pill-right btn-danger btn-sm"
@@ -68,11 +68,13 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                <button class="btn btn-primary"
-                                        onclick="event.preventDefault(); document.getElementById('tambah-submit').submit();">
-                                    Simpan
-                                </button>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-pill-left btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button class="btn btn-pill-right btn-primary"
+                                            onclick="event.preventDefault(); document.getElementById('tambah-submit').submit();">
+                                        Simpan
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -50,8 +50,10 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('tambah-form-carousel').submit();">Simpan</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-pill-left btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button class="btn btn-pill-right btn-primary" onclick="event.preventDefault(); document.getElementById('tambah-form-carousel').submit();">Simpan</button>
+                    </div>
                 </div>
             </div>
         </div>

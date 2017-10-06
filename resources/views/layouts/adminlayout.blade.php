@@ -68,7 +68,7 @@
                             <span class="name"> {{ Auth::user()->name }} </span>
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('pengaturan') }}">
                                 <i class="fa fa-gear icon"></i>
                                 Pengaturan
                             </a>

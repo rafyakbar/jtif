@@ -16,9 +16,9 @@
                 <label>Isi</label>
                 <textarea name="isi" required>{{ $post->isi }}</textarea>
                 <br>
-                <label>File (jika ada atau kosongkan jika telah mengupload file sebelumnya)</label>
+                <label>File</label>
                 @if(!is_null($post->dir))
-                    <a href="{{ asset($post->dir) }}">Link file sebelumnya</a>
+                    <a href="{{ asset($post->dir) }}">(link file download sebelumnya)</a>
                 @endif
                 <input type="file" class="form-control" name="dir">
                 <br>

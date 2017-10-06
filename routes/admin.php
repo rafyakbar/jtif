@@ -1,7 +1,11 @@
 <?php
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('dashboard', 'HomeController@index')->name('home');
+
+Route::get('pengaturan', function (){
+    return view('admin.pengaturan');
+})->name('pengaturan');
 
 Route::group(['prefix' => 'daftar'], function (){
 
@@ -152,9 +156,14 @@ Route::group(['prefix' => 'update'], function (){
         'as' => 'update.carousel'
     ]);
 
-    Route::post('admin', [
-        'uses' => 'UserController@update',
-        'as' => 'update.admin'
+    Route::post('admin/general', [
+        'uses' => 'UserController@updateGeneral',
+        'as' => 'update.admin.general'
+    ]);
+
+    Route::post('admin/password', [
+        'uses' => 'UserController@updatePassword',
+        'as' => 'update.admin.password'
     ]);
 
 });
