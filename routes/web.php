@@ -18,3 +18,5 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('/', function () {
     return view('user.home');
 });
+
+Route::post('kritik_dan_saran', 'KritikSaranController@tambah')->name('tambah.kritik_dan_saran');
