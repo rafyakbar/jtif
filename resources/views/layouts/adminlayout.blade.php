@@ -53,13 +53,7 @@
                 </button>
             </div>
             <div class="header-block header-block-search">
-                <form role="search">
-                    <div class="input-container">
-                        <i class="fa fa-search"></i>
-                        <input type="search" placeholder="Cari post...">
-                        <div class="underline"></div>
-                    </div>
-                </form>
+                Do the Best, Nothing Less !!!
             </div>
             <div class="header-block header-block-buttons">
                 <a href="{{ url('/') }}" class="btn btn-sm header-btn" target="_blank">
