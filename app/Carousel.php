@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carousel extends Model
 {
-    public $timestamps = false;
-
     protected $table = 'carousel';
 
     protected $fillable = [
-        'dir', 'created_at', 'updated_at'
+        'dir', 'keterangan', 'created_at', 'updated_at'
     ];
 }
