@@ -111,9 +111,7 @@
         <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
         <div class="mobile-menu-handle"></div>
         <article class="content dashboard-page">
-
             @yield('content')
-
         </article>
         <footer class="footer">
             <div class="footer-block buttons">

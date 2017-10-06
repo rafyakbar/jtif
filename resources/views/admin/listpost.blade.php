@@ -33,8 +33,8 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-primary btn-sm" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
-                                <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
+                                <a class="btn btn-pill-left btn-primary btn-sm" href="{{ route('daftar.post.post', ['menu' => str_replace(' ', '_',  \App\Menu::find($menu_id)->nama), 'post_id' => $item->id]) }}">Edit</a>
+                                <button class="btn btn-pill-right btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit()">Hapus</button>
                             </div>
                         </td>
                     </tr>

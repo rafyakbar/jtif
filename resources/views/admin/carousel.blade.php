@@ -1,7 +1,7 @@
 @extends('layouts.adminlayout')
 
 @section('content')
-    <button class="btn btn-primary" data-toggle="modal" data-target="#tambah">Tambah item</button>
+    <button class="btn btn-oval btn-primary" data-toggle="modal" data-target="#tambah">Tambah item</button>
     <br><br>
     @foreach(\App\Carousel::orderBy('created_at', 'desc')->get() as $item)
         <div class="card card-block">

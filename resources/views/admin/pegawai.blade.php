@@ -37,12 +37,10 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                <button type="button" class="btn btn-pill-left btn-primary btn-sm" data-toggle="modal"
                                         data-target="#{{ $item->id }}">Edit
                                 </button>
-                                <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
-                                    Hapus
-                                </button>
+                                <button class="btn btn-pill-right btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">Hapus</button>
                             </div>
                         </td>
                     </tr>

@@ -1,6 +1,7 @@
 @extends('layouts.adminlayout')
 
 @section('content')
+    @include('mceImageUpload::upload_form')
     <form action="{{ route('update.post') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" name="id" value="{{ $post->id }}">

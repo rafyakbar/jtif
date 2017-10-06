@@ -42,11 +42,11 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <button type="submit" class="btn btn-primary btn-sm" @if($item->nama == 'Berita') disabled @endif>
+                                    <button type="submit" class="btn btn-pill-left btn-primary btn-sm" @if($item->nama == 'Berita') disabled @endif>
                                         Simpan
                                     </button>
                                     <a href="{{ route('daftar.post', ['menu' => str_replace(' ', '_',  $item->nama)]) }}" class="btn btn-info btn-sm">Lihat post</a>
-                                    <button class="btn btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();" @if($item->nama == 'Berita') disabled @endif>
+                                    <button class="btn btn-pill-right btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('{{ $item->id }}').submit();" @if($item->nama == 'Berita') disabled @endif>
                                         Hapus
                                     </button>
                                 </div>

@@ -24,11 +24,12 @@
                             <strong>{{ $item->nama }}</strong>
                         </td>
                         <td>
-                            <a href="" class="btn btn-primary">Lihat galeri</a>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{ $item->id }}">Edit</button>
-                            <button class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
-                                Hapus
-                            </button>
+                            <div class="btn-group">
+                                <button class="btn btn-pill-left btn-primary btn-sm" data-toggle="modal" data-target="#edit-{{ $item->id }}">Edit</button>
+                                <button class="btn btn-pill-right btn-danger btn-sm" onclick="event.preventDefault(); document.getElementById('hapus-{{ $item->id }}').submit();">
+                                    Hapus
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <form action="{{ route('hapus.prasarana') }}" method="post" id="hapus-{{ $item->id }}">
