@@ -88,9 +88,11 @@
     @endif
     <div class="card card-block">
         <div class="title-block">
-            <h3 class="title">
-                Kritik & Saran
-            </h3>
+            <form action="{{ route('hapus.semua.kritik_dan_saran') }}" method="post">
+                {{ csrf_field() }}
+                <strong>Kritik & Saran</strong>
+                <input type="submit" value="Hapus semua saran" class="btn btn-oval btn-danger">
+            </form>
         </div>
         <section class="example">
             <div style="max-height: 320px;overflow: auto">

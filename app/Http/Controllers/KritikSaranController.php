@@ -27,4 +27,11 @@ class KritikSaranController extends Controller
 
         return back()->with('message', '"'.$kritiksaran->isi.'" berhasil dihapus!');
     }
+
+    public function hapusSemua()
+    {
+        KritikSaran::truncate();
+
+        return back()->with('message', 'Semua kritik dan saran telah dihapus!');
+    }
 }

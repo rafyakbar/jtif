@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::post('tambah/kritik_dan_saran', 'KritikSaranController@tambah')->name('tambah.kritik_dan_saran');
 
 Route::post('hapus/kritik_dan_saran', 'KritikSaranController@hapus')->name('hapus.kritik_dan_saran');
+
+Route::post('hapus/semua/kritik_dan_saran', 'KritikSaranController@hapusSemua')->name('hapus.semua.kritik_dan_saran');
