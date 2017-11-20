@@ -18,7 +18,7 @@
 
 <body class="index-page sidebar-collapse">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="400">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ route('beranda') }}" data-placement="bottom" target="_blank">
@@ -78,7 +78,9 @@
     </div>
 </nav>
 <!-- End Navbar -->
-<div class="wrapper" style="margin-top: 70px">
+<div class="wrapper">
+
+    @yield('landing')
 
     <div class="main">
         @yield('content')
@@ -130,9 +132,10 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
-                            MIT License
-                        </a>
+                        Tim Web Jurusan Teknik Informatika
+                        {{--<a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">--}}
+                            {{--MIT License--}}
+                        {{--</a>--}}
                     </li>
                 </ul>
             </nav>
