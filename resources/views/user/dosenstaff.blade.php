@@ -11,64 +11,17 @@
             <div class="col-lg-12">
 
                 <!-- Title -->
-                <h1 class="mt-4">Post Title</h1>
+                <h1 class="mt-4">Karyawan dan Dosen</h1>
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
+                    @foreach(\App\Pegawai::all() as $pegawai)
+                        <div class="col-lg-3">
+                            <div class="card card-body">
+                                <img src="{{ asset("user/img/default-avatar.png") }}" width="100%">
+                                <h4>{{ $pegawai->nama }}</h4>
+                                <p>{{ $pegawai->jabatan }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card card-body">
-                            <img src="{{ asset("user/img/ryan.jpg") }}" width="100%">
-                            <h4>Nama Dosen/Staff</h4>
-                            <p>Deskripsi Donec eget ullamcorper ex, ac luctus arcu. Nunc nec porta dolor. Phasellus porttitor massa quam, nec condimentum est commodo sit amet. Curabitur blandit mauris ac est accumsan, non consequat turpis pellentesque. Sed semper posuere est at elementum.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
             </div>

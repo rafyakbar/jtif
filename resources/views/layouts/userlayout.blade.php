@@ -2,18 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>@yield('title')</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}"/>
     <!-- CSS Files -->
-    <link href="{{ asset('user/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('user/css/now-ui-kit.css') }}" rel="stylesheet" />
+    <link href="{{ asset('user/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('user/css/now-ui-kit.css') }}" rel="stylesheet"/>
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -24,7 +25,8 @@
             <a class="navbar-brand" href="{{ route('beranda') }}" data-placement="bottom" target="_blank">
                 Jurusan Teknik Informatika
             </a>
-            <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
@@ -58,18 +60,15 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" id="navbarDropdownMenuLink1">
+                        <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown"
+                           id="navbarDropdownMenuLink1">
                             <i class="fa fa-bars"></i>
                             <p>Menu Lain</p>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="{{ route('lain') }}">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">One more separated link</a>
+                            @foreach(\App\Menu::all() as $menu)
+                                <a class="dropdown-item" href="{{ route('listlain',['menu_id'=>$menu->id]) }}">{{ $menu->nama }}</a>
+                            @endforeach
                         </ul>
                     </div>
                 </li>
@@ -94,7 +93,11 @@
                     <h4 class="title title-up">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+                        a large language ocean. A small river named Duden flows by their place and supplies it with the
+                        necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly
+                        into your mouth.
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -106,7 +109,8 @@
     </div>
     <!--  End Modal -->
     <!-- Mini Modal -->
-    <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header justify-content-center">
@@ -159,7 +163,7 @@
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('user/js/now-ui-kit.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         // the body of this function is in assets/js/now-ui-kit.js
         nowuiKit.initSliders();
     });

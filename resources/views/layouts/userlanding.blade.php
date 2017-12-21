@@ -63,13 +63,9 @@
                             <p>Menu Lain</p>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="{{ route('lain') }}">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">One more separated link</a>
+                            @foreach(\App\Menu::all() as $menu)
+                                <a class="dropdown-item" href="{{ route('listlain',['menu_id'=>$menu->id]) }}">{{ $menu->nama }}</a>
+                            @endforeach
                         </ul>
                     </div>
                 </li>

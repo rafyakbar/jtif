@@ -69,64 +69,24 @@
         <div class="container text-center">
             <div class="row justify-content-md-center">
                 <div class="col-md-12 col-lg-12">
-                    <h2 class="title">Berita Terbaru</h2>
+                    <h2 class="title">Berita</h2>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="justify-content-center" data-background-color="orange">
-                                    <h3>Berita 1</h3>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Tab panes -->
-                                    <div class="text-justify">
-                                        <p>I think that’s a responsibility that I have, to push possibilities, to show
-                                            people, this is the level that things could be at. So when you get something
-                                            that has the name Kanye West on it, it’s supposed to be pushing the furthest
-                                            possibilities. I will be the leader of a company that ends up being worth
-                                            billions of dollars, because I got the answers. I understand culture. I am
-                                            the nucleus.</p>
+                        @foreach($berita as $item)
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="justify-content-center" data-background-color="orange">
+                                        <h3>{{ $item->judul }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Tab panes -->
+                                        <div class="text-justify">
+                                            <p> {!! substr($item->isi,0,200) !!}... </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="justify-content-center" data-background-color="orange">
-                                    <h3>Berita 2</h3>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Tab panes -->
-                                    <div class="text-justify">
-                                        <p>I think that’s a responsibility that I have, to push possibilities, to show
-                                            people, this is the level that things could be at. So when you get something
-                                            that has the name Kanye West on it, it’s supposed to be pushing the furthest
-                                            possibilities. I will be the leader of a company that ends up being worth
-                                            billions of dollars, because I got the answers. I understand culture. I am
-                                            the nucleus.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <!-- Tabs with Background on Card -->
-                            <div class="card">
-                                <div class="justify-content-center" data-background-color="orange">
-                                    <h3>Berita 3</h3>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Tab panes -->
-                                    <div class="text-justify">
-                                        <p>I think that’s a responsibility that I have, to push possibilities, to show
-                                            people, this is the level that things could be at. So when you get something
-                                            that has the name Kanye West on it, it’s supposed to be pushing the furthest
-                                            possibilities. I will be the leader of a company that ends up being worth
-                                            billions of dollars, because I got the answers. I understand culture. I am
-                                            the nucleus.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Tabs on plain Card -->
-                        </div>
+                        @endforeach
+                        <div>{{ $berita -> links() }}</div>
                     </div>
                 </div>
             </div>
@@ -168,7 +128,8 @@
                 </div>
                 <div class="text-center col-md-12 col-lg-8">
                     <a target="_blank" href="https://www.twitter.com/creativetim"
-                       class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">
+                       class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip"
+                       title="Follow us">
                         <i class="fa fa-twitter"></i>
                     </a>
                     <a target="_blank" href="https://www.facebook.com/creativetim"
@@ -176,7 +137,8 @@
                         <i class="fa fa-facebook-square"></i>
                     </a>
                     <a target="_blank" href="https://www.linkedin.com/company-beta/9430489/"
-                       class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round" rel="tooltip" title="Follow us">
+                       class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round" rel="tooltip"
+                       title="Follow us">
                         <i class="fa fa-linkedin"></i>
                     </a>
                     <a target="_blank" href="https://github.com/creativetimofficial/now-ui-kit"

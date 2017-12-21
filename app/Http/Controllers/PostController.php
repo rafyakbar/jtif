@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
+    public function beritaHome(){
+        return view('user.home', [
+            'berita' => \App\Post::where('menu_id','1')->orderBy('created_at','desc')->paginate(3)
+        ]);
+    }
+
     public function daftar(Request $request)
     {
         $menu = Menu::searchByName(str_replace('_',' ',$request->menu));
